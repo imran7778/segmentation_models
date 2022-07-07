@@ -61,7 +61,7 @@ def Conv2dBn(
 
         if use_batchnorm:
             x = layers.BatchNormalization(axis=bn_axis, name=bn_name)(x)
-            x = Dropout(rate=drop_prob)(x, training=True) # training=true means dropout at training + test-time!
+            x = Dropout(rate=0.25)(x, training=True) # training=true means dropout at training + test-time!
 
         if activation:
             x = layers.Activation(activation, name=act_name)(x)
